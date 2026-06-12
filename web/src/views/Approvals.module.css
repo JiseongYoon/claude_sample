@@ -1,0 +1,110 @@
+.panel {
+ background: var(--c-bg-elev);
+ border: 1px solid var(--c-pending);
+ border-radius: var(--radius);
+ padding: var(--sp-4);
+}
+
+.heading {
+ font-size: var(--fs-3);
+ margin-bottom: var(--sp-3);
+ display: flex;
+ align-items: center;
+ gap: var(--sp-2);
+}
+
+.list {
+ list-style: none;
+ margin: 0;
+ padding: 0;
+ display: flex;
+ flex-direction: column;
+ gap: var(--sp-3);
+}
+
+.item {
+ border: 1px solid var(--c-border-strong);
+ border-left: 3px solid var(--c-text-faint);
+ border-radius: var(--radius-sm);
+ padding: var(--sp-3);
+ background: var(--c-bg-elev-2);
+}
+.item[data-status="pending"] {
+ border-left-color: var(--c-pending);
+}
+.item[data-status="resolved"] {
+ border-left-color: var(--c-ok);
+}
+.item[data-status="expired"],
+.item[data-status="error"] {
+ border-left-color: var(--c-down);
+}
+
+.tool {
+ font-family: var(--mono);
+ font-size: var(--fs-2);
+}
+
+.reason {
+ color: var(--c-text-dim);
+}
+
+.args {
+ margin-top: var(--sp-2);
+}
+.args summary {
+ cursor: pointer;
+ color: var(--c-text-dim);
+ font-size: var(--fs-2);
+}
+.argsPre {
+ margin: var(--sp-2) 0 0;
+ padding: var(--sp-3);
+ background: var(--c-bg);
+ border: 1px solid var(--c-border);
+ border-radius: var(--radius-sm);
+ max-height: 280px;
+ overflow: auto;
+ white-space: pre-wrap;
+ word-break: break-word;
+}
+
+.actions {
+ display: flex;
+ align-items: center;
+ gap: var(--sp-2);
+ margin-top: var(--sp-3);
+}
+
+.countdown {
+ margin-right: auto;
+ font-family: var(--mono);
+ font-size: var(--fs-1);
+ color: var(--c-pending);
+}
+
+.approve {
+ background: var(--c-ok);
+ border-color: var(--c-ok);
+ color: var(--c-accent-contrast);
+ font-weight: 600;
+}
+.approve:hover:not(:disabled) {
+ background: #5fd89c;
+ border-color: #5fd89c;
+}
+.deny {
+ background: transparent;
+ border-color: var(--c-down);
+ color: var(--c-down);
+ font-weight: 600;
+}
+.deny:hover:not(:disabled) {
+ background: rgba(240, 106, 106, 0.12);
+}
+
+.resolved {
+ margin-top: var(--sp-3);
+ font-size: var(--fs-2);
+ color: var(--c-text-dim);
+}

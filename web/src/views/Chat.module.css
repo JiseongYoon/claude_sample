@@ -1,0 +1,125 @@
+.panel {
+ background: var(--c-bg-elev);
+ border: 1px solid var(--c-border);
+ border-radius: var(--radius);
+ padding: var(--sp-4);
+ display: flex;
+ flex-direction: column;
+ gap: var(--sp-3);
+ min-height: 320px;
+}
+
+.heading {
+ font-size: var(--fs-3);
+}
+
+.messages {
+ list-style: none;
+ margin: 0;
+ padding: 0;
+ display: flex;
+ flex-direction: column;
+ gap: var(--sp-3);
+ flex: 1;
+}
+
+.msg {
+ display: flex;
+ flex-direction: column;
+ gap: var(--sp-1);
+ max-width: 85%;
+ padding: var(--sp-3);
+ border-radius: var(--radius);
+ border: 1px solid var(--c-border);
+ white-space: pre-wrap;
+ word-break: break-word;
+}
+.msg[data-role="user"] {
+ align-self: flex-end;
+ background: var(--c-user);
+}
+.msg[data-role="agent"] {
+ align-self: flex-start;
+ background: var(--c-agent);
+}
+.msg[data-role="system"] {
+ align-self: center;
+ background: var(--c-system);
+ color: var(--c-text-dim);
+ font-size: var(--fs-2);
+ max-width: 100%;
+}
+
+.meta {
+ color: var(--c-text-faint);
+ font-size: var(--fs-1);
+}
+
+.citations {
+ margin-top: var(--sp-2);
+ padding-top: var(--sp-2);
+ border-top: 1px dashed var(--c-border-strong);
+}
+.citations > small {
+ color: var(--c-text-faint);
+ text-transform: uppercase;
+ letter-spacing: 0.05em;
+ font-size: var(--fs-1);
+}
+.citationsList {
+ list-style: none;
+ margin: var(--sp-1) 0 0;
+ padding: 0;
+ display: flex;
+ flex-direction: column;
+ gap: 2px;
+}
+.citation {
+ font-family: var(--mono);
+ font-size: var(--fs-1);
+ color: var(--c-text-dim);
+ word-break: break-all;
+}
+
+.running {
+ color: var(--c-text-dim);
+ font-size: var(--fs-2);
+ display: flex;
+ flex-direction: column;
+ gap: var(--sp-2);
+}
+.running > p {
+ margin: 0;
+ font-style: italic;
+}
+
+/* live tool activity */
+.activity {
+ list-style: none;
+ margin: 0;
+ padding: 0;
+ display: flex;
+ flex-direction: column;
+ gap: 2px;
+}
+.activity > li {
+ font-family: var(--mono);
+ font-size: var(--fs-1);
+ color: var(--c-text-faint);
+}
+
+/* live streamed answer */
+.streaming {
+ font-style: normal !important;
+ color: var(--c-text);
+ white-space: pre-wrap;
+ word-break: break-word;
+}
+
+.form {
+ display: flex;
+ gap: var(--sp-2);
+}
+.form input {
+ flex: 1;
+}

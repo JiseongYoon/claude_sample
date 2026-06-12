@@ -1,0 +1,102 @@
+.wrap {
+ display: flex;
+ flex-direction: column;
+ gap: var(--sp-3);
+}
+
+.tabs {
+ display: flex;
+ gap: var(--sp-1);
+ border-bottom: 1px solid var(--c-border);
+}
+.tabs button {
+ background: transparent;
+ border: none;
+ border-bottom: 2px solid transparent;
+ border-radius: 0;
+ padding: var(--sp-2) var(--sp-4);
+ color: var(--c-text-dim);
+ font-weight: 600;
+}
+.tabs button:hover:not(:disabled) {
+ background: var(--c-bg-elev);
+ border-bottom-color: var(--c-border-strong);
+}
+.active {
+ color: var(--c-text) !important;
+ border-bottom-color: var(--c-accent) !important;
+}
+
+.system {
+ display: flex;
+ flex-direction: column;
+ gap: var(--sp-1);
+ font-size: var(--fs-1);
+ color: var(--c-text-faint);
+}
+.system textarea {
+ resize: vertical;
+ font-family: inherit;
+}
+
+/* — shared attachment upload control + chips (zero authority) */
+.attach {
+ display: flex;
+ flex-direction: column;
+ gap: var(--sp-1);
+ font-size: var(--fs-1);
+ color: var(--c-text-faint);
+}
+.uploadRow {
+ display: flex;
+ align-items: center;
+ gap: var(--sp-2);
+ min-width: 0;
+}
+.uploadRow input[type="file"] {
+ min-width: 0;
+ max-width: 100%;
+}
+.uploadStatus {
+ color: var(--c-text-dim);
+}
+.uploadErr {
+ color: var(--c-status-down, #d66);
+ margin: 0;
+}
+.chips {
+ display: flex;
+ flex-wrap: wrap;
+ gap: var(--sp-1);
+ list-style: none;
+ margin: 0;
+ padding: 0;
+}
+.chip {
+ display: inline-flex;
+ align-items: center;
+ gap: var(--sp-1);
+ max-width: 100%;
+ padding: 2px var(--sp-2);
+ background: var(--c-bg-elev);
+ border: 1px solid var(--c-border);
+ border-radius: var(--radius-1, 4px);
+ color: var(--c-text);
+}
+.chip span {
+ overflow: hidden;
+ text-overflow: ellipsis;
+ white-space: nowrap;
+ max-width: 16rem;
+}
+.chipRemove {
+ background: transparent;
+ border: none;
+ padding: 0 2px;
+ color: var(--c-text-dim);
+ cursor: pointer;
+ font-weight: 700;
+}
+.chipRemove:hover {
+ color: var(--c-text);
+}

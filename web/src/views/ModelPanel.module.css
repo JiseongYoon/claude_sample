@@ -1,0 +1,196 @@
+.panel {
+ background: var(--c-bg-elev);
+ border: 1px solid var(--c-border);
+ border-radius: var(--radius);
+ padding: var(--sp-4);
+ display: flex;
+ flex-direction: column;
+ gap: var(--sp-4);
+}
+
+.heading {
+ font-size: var(--fs-3);
+}
+
+.statusRow {
+ display: flex;
+ align-items: center;
+ gap: var(--sp-2);
+ font-size: var(--fs-2);
+}
+
+.stateBadge {
+ font-weight: 600;
+ padding: 1px var(--sp-2);
+ border-radius: 999px;
+ border: 1px solid var(--c-border-strong);
+ color: var(--c-text-dim);
+}
+.stateBadge[data-state="ready"] {
+ color: var(--c-ok);
+ border-color: var(--c-ok);
+}
+.stateBadge[data-state="launching"] {
+ color: var(--c-degraded);
+ border-color: var(--c-degraded);
+}
+.stateBadge[data-state="error"] {
+ color: var(--c-down);
+ border-color: var(--c-down);
+}
+
+.loaded {
+ font-family: var(--mono);
+ color: var(--c-text-dim);
+}
+
+/* ISSUE-002: load-in-progress indicator — indeterminate bar + elapsed + hint (no true % signal yet). */
+.loadProgress {
+ display: flex;
+ flex-direction: column;
+ gap: var(--sp-1);
+}
+.loadBar {
+ position: relative;
+ height: 4px;
+ border-radius: 999px;
+ background: var(--c-bg-elev-2);
+ overflow: hidden;
+}
+.loadBar::after {
+ content: "";
+ position: absolute;
+ top: 0;
+ left: 0;
+ height: 100%;
+ width: 40%;
+ border-radius: 999px;
+ background: var(--c-accent);
+ animation: load-indeterminate 1.2s ease-in-out infinite;
+}
+@keyframes load-indeterminate {
+ 0% {
+ left: -40%;
+ }
+ 100% {
+ left: 100%;
+ }
+}
+@media (prefers-reduced-motion: reduce) {
+ .loadBar::after {
+ animation: none;
+ width: 100%;
+ opacity: 0.5;
+ }
+}
+.loadMeta {
+ display: flex;
+ align-items: baseline;
+ gap: var(--sp-2);
+ font-size: var(--fs-1);
+ color: var(--c-text-dim);
+}
+.loadMeta span:first-child {
+ font-family: var(--mono);
+}
+.loadHint {
+ color: var(--c-text-faint);
+}
+
+.group {
+ display: flex;
+ flex-direction: column;
+ gap: var(--sp-2);
+}
+.groupLabel {
+ font-size: var(--fs-1);
+ text-transform: uppercase;
+ letter-spacing: 0.05em;
+ color: var(--c-text-faint);
+}
+
+.row {
+ display: flex;
+ gap: var(--sp-2);
+ flex-wrap: wrap;
+ align-items: center;
+}
+.row select {
+ flex: 1;
+ min-width: 160px;
+}
+
+.params {
+ display: grid;
+ grid-template-columns: repeat(2, 1fr);
+ gap: var(--sp-2);
+}
+/* ISSUE-003: grid cells default to `min-width:auto` → a cell won't shrink below its content's intrinsic
+ size, so the input (with global padding) overflowed the column in a narrow container. `min-width:0`
+ lets the cell shrink; `width:100%` makes the input fill (not exceed) the cell (box-sizing:border-box
+ is global). On very narrow widths the 2-col grid collapses to a single column so it never overflows. */
+.field {
+ display: flex;
+ flex-direction: column;
+ gap: var(--sp-1);
+ font-size: var(--fs-1);
+ color: var(--c-text-dim);
+ min-width: 0;
+}
+.field input {
+ width: 100%;
+ min-width: 0;
+}
+
+@media (max-width: 480px) {
+ .params {
+ grid-template-columns: 1fr;
+ }
+}
+
+.notice {
+ font-size: var(--fs-2);
+ color: var(--c-text-dim);
+ margin: 0;
+}
+
+.adminLocked {
+ font-size: var(--fs-2);
+ color: var(--c-degraded);
+ background: rgba(232, 179, 65, 0.1);
+ border: 1px solid var(--c-degraded);
+ border-radius: var(--radius-sm);
+ padding: var(--sp-2) var(--sp-3);
+ margin: 0;
+}
+
+.modules {
+ list-style: none;
+ margin: 0;
+ padding: 0;
+ display: flex;
+ flex-direction: column;
+ gap: var(--sp-1);
+}
+.module {
+ display: flex;
+ align-items: center;
+ gap: var(--sp-2);
+ font-size: var(--fs-2);
+}
+.moduleStatus {
+ margin-left: auto;
+ font-size: var(--fs-1);
+ padding: 1px var(--sp-2);
+ border-radius: 999px;
+ background: var(--c-bg-elev-2);
+}
+.moduleStatus[data-status="ok"] {
+ color: var(--c-ok);
+}
+.moduleStatus[data-status="degraded"] {
+ color: var(--c-degraded);
+}
+.moduleStatus[data-status="down"] {
+ color: var(--c-down);
+}

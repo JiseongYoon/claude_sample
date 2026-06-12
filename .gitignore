@@ -1,0 +1,17 @@
+# Local env / secrets (never commit; .env.example is the tracked spec)
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.venv/
+
+# Models (large; provided locally)
+models/
+
+# OS
+.DS_Store
